@@ -1,18 +1,30 @@
-fun main() {
-    println("Place enter a number: ")
-    val input = readln()
-    val inputAsInteger = input.toIntOrNull()
-    if (inputAsInteger != null) {
-        val output = if (inputAsInteger % 2 == 0) {
-            "The number is even!"
-        } else if (inputAsInteger < 10) {
-            "The number is odd and less than 10"
-        } else {
-            "The number is odd and at least 11"
-        }
+import kotlin.math.PI
+import kotlin.math.sqrt
 
-        println(output)
-    } else {
-        println("Dude, enter a valid number!")
-    }
+fun main() {
+    val rect1 = Rectangle(
+        width = 5f,
+        height = 7f
+    )
+
+    val rect2 = rect1.copy(
+        height = 10f
+    )
+
+    val circle = Circle(radius = 5f)
+
+    println(circle.area)
+
+}
+
+data class Rectangle(val width: Float, val height: Float) {
+
+    val diagonal = sqrt(width * width + height * height)
+    val area = width * height
+}
+
+data class Circle(val radius: Float) {
+    val area = radius * radius * PI
+
+    val diameter = 2 * radius
 }
